@@ -1,5 +1,5 @@
 function getComputerChoice() {
-  let possibleShapes = ['Rock', 'Paper', 'Scissors']
+  let possibleShapes = ['rock', 'paper', 'scissors']
   let chosenShape = possibleShapes[Math.floor(Math.random() * possibleShapes.length)];
   return chosenShape
 }
