@@ -21,20 +21,35 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection == "rock") ||
     (playerSelection === "scissors" && computerSelection == "paper")
   ) {
-    return `You Win! ${toTitle(playerSelection)} beats ${toTitle(
-      computerSelection
-    )}!`;
+    console.log(
+      `You Win! ${toTitle(playerSelection)} beats ${toTitle(
+        computerSelection
+      )}!`
+    );
+    return 1;
   } else if (
     (playerSelection === "rock" && computerSelection == "paper") ||
     (playerSelection === "paper" && computerSelection == "scissors") ||
     (playerSelection === "scissors" && computerSelection == "rock")
   ) {
-    return `You Lose! ${toTitle(computerSelection)} beats ${toTitle(
-      playerSelection
-    )}!`;
+    console.log(
+      `You Lose! ${toTitle(computerSelection)} beats ${toTitle(
+        playerSelection
+      )}!`
+    );
+    return 0;
   } else {
-    return "It's a tie!";
+    console.log("It's a tie!");
+    return 0;
   }
 }
 
-console.log(playRound(getPlayerChoice(), getComputerChoice()));
+function game() {
+  let score = 0;
+  for (let i = 0; i < 5; i++) {
+    score += playRound(getPlayerChoice(), getComputerChoice(), score);
+  }
+  console.log(`Final score: ${score}`);
+}
+
+game();
