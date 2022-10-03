@@ -11,25 +11,30 @@ function getPlayerChoice() {
   return playerChoice;
 }
 
-function capitalizeFirstLetter(str) {
+function toTitle(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === "rock" && computerSelection == "scissors") {
-    return "You Win! Rock beats Scissors!";
-  } else if (playerSelection === "paper" && computerSelection == "rock") {
-    return "You Win! Paper beats Rock!";
-  } else if (playerSelection === "scissors" && computerSelection == "paper") {
-    return "You Win! Scissors beat Paper!";
-  } else if (playerSelection === "rock" && computerSelection == "paper") {
-    return "You Lose! Paper beats Rock!";
-  } else if (playerSelection === "paper" && computerSelection == "scissors") {
-    return "You Lose! Scissors beat Paper!";
-  } else if (playerSelection === "scissors" && computerSelection == "rock") {
-    return "You Lose! Rock beats Scissors!";
+  if (
+    (playerSelection === "rock" && computerSelection == "scissors") ||
+    (playerSelection === "paper" && computerSelection == "rock") ||
+    (playerSelection === "scissors" && computerSelection == "paper")
+  ) {
+    return `You Win! ${toTitle(playerSelection)} beats ${toTitle(
+      computerSelection
+    )}!`;
+  } else if (
+    (playerSelection === "rock" && computerSelection == "paper") ||
+    (playerSelection === "paper" && computerSelection == "scissors") ||
+    (playerSelection === "scissors" && computerSelection == "rock")
+  ) {
+    return `You Lose! ${toTitle(computerSelection)} beats ${toTitle(
+      playerSelection
+    )}!`;
   } else {
     return "It's a tie!";
   }
 }
 
+console.log(playRound(getPlayerChoice(), getComputerChoice()));
