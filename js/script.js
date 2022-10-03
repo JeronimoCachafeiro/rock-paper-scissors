@@ -4,4 +4,8 @@ function getComputerChoice() {
   return chosenShape
 }
 
-console.log(getComputerChoice());
+function getPlayerChoice() {
+  let playerChoice = prompt('Choose a shape: ').toLowerCase();
+  return playerChoice;
+}
+
