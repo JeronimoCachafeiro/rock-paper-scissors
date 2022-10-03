@@ -11,6 +11,10 @@ function getPlayerChoice() {
   return playerChoice;
 }
 
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection == "scissors") {
     return "You Win! Rock beats Scissors!";
@@ -28,8 +32,4 @@ function playRound(playerSelection, computerSelection) {
     return "It's a tie!";
   }
 }
-
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
 
