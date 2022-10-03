@@ -9,3 +9,7 @@ function getPlayerChoice() {
   return playerChoice;
 }
 
+function playRound(playerSelection, computerSelection) {
+    
+}
+
